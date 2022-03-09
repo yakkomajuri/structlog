@@ -7,8 +7,8 @@ A structured logging tool for Node.js.
 By default this tool will generate logs like the following:
 
 ```
-2022-03-09T19:57:48.962Z [error] i'm an error [/structlog/foo.js:5] 
-2022-03-09T19:57:48.963Z [warn] i'm a warning [/structlog/foo.js:6] 
+2022-03-09T19:57:48.962Z [error] i'm an error [/structlog/foo.js:5] thread=MAIN logId=017f705b-4200-0002-1101-720541fa117c 
+2022-03-09T19:57:48.963Z [warn] i'm a warning [/structlog/foo.js:6] thread=MAIN logId=017f705b-4200-0000-e4a6-f1df2ca4f248
 ```
 
 However, you can configure both the log and timestamp formats.
