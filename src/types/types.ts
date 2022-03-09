@@ -6,6 +6,20 @@ export enum LogType {
   Error = 'error',
 }
 
-export interface LogOptions extends Record<string, any> {}
+export enum TimestampFormat {
+  Iso = 'iso',
+  Utc = 'utc',
+  Gmt = 'gmt',
+  TimeString = 'timestring',
+  LocaleString = 'localestring',
+  UnixTimestamp = 'unix',
+}
 
-export type LogTags = Record<string, string>;
+export interface LogOptions extends Record<string, any> {
+  timestampFormat: TimestampFormat,
+  logFormat: string,
+  useColors: boolean,
+  useThreadTagsExtension: boolean
+}
+
+export type LogTags = Record<string, string>
