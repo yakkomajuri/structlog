@@ -1,6 +1,6 @@
 # structlog
 
-Structured logging tool for Node.js.
+A structured logging tool for Node.js.
 
 ## Example
 
