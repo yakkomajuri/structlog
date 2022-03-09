@@ -48,3 +48,4 @@ You can configure the following options by passing them in an object as a parame
 | `logFormat` | `'{timestamp} [{type}] {message} [{path}] {tags}'` | Any string. | Log format to use `{}` to define variables. Accepted variables: `timestamp`, `type`, `message`, `path`, `tags`. |
 | `useColors` | `false` | `true`, `false` | Whether logs should be printed with colors according to the type (e.g. error = red). |
 | `useThreadTagsExtension` | `false` | `true`, `false` | An extension that automatically adds a `thread` tag to the log specifying what thread the log happened in. |
+| `useLogIdExtension` | `false` | `true`, `false` | An extension that automatically adds a `logId` tag to the log, with a unique ID as its value. |

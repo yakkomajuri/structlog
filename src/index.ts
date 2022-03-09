@@ -1,3 +1,4 @@
+import { UUIDT } from './utils/uuid';
 import { GetCallerResponse, _InternalCaller } from './lib/caller'
 import { LogOptions, LogTags, LogType, TimestampFormat } from './types/types'
 import { colorText, parseTagsAsString } from './utils/utils'
@@ -25,7 +26,8 @@ export class StructuredLogger {
       timestampFormat: TimestampFormat.Iso,
       logFormat: DEFAULT_LOG_FORMAT,
       useColors: false,
-      useThreadTagsExtension: false
+      useThreadTagsExtension: false,
+      useLogIdExtension: false
     }
 
     this.config = { ...defaultOptions, ...options }
@@ -89,6 +91,10 @@ export class StructuredLogger {
     const enrichmentTags = {}
     if (this.config.useThreadTagsExtension) {
       enrichmentTags['thread'] = isMainThread ? 'MAIN' : threadId
+    }
+
+    if (this.config.useLogIdExtension) {
+      enrichmentTags['logId'] = new UUIDT().toString()
     }
 
     return { ...enrichmentTags, ...tags }

@@ -19,7 +19,8 @@ export interface LogOptions extends Record<string, any> {
   timestampFormat: TimestampFormat,
   logFormat: string,
   useColors: boolean,
-  useThreadTagsExtension: boolean
+  useThreadTagsExtension: boolean,
+  useLogIdExtension: boolean
 }
 
 export type LogTags = Record<string, string>
