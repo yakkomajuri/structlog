@@ -10,7 +10,13 @@
     "url": "https://github.com/yakkomajuri/structlog.git"
   },
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "log",
+    "logger",
+    "structured-logging",
+    "structured logging"
+  ],
   "scripts": {
     "build": "run-p build:*",
     "build:main": "tsc -p tsconfig.json",
