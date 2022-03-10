@@ -45,7 +45,8 @@ You can configure the following options by passing them in an object as a parame
 | Option | Default value | Accepted values | Description |
 | :--: | :--: | :--: | :--: | 
 | `timestampFormat` | `'iso'` | `'iso'` , `'gmt'`, `'unix'`, `'timestring'` ,`'localestring'` | Timestamp format to use. |
-| `logFormat` | `'{timestamp} [{type}] {message} [{path}] {tags}'` | Any string. | Log format to use `{}` to define variables. Accepted variables: `timestamp`, `type`, `message`, `path`, `tags`. |
+| `logFormat` | `'{timestamp} [{type}] {message} [{path}] {tags}'` | Any `string` | Log format to use `{}` to define variables. Accepted variables: `timestamp`, `type`, `message`, `path`, `tags`. |
 | `useColors` | `false` | `true`, `false` | Whether logs should be printed with colors according to the type (e.g. error = red). |
 | `useThreadTagsExtension` | `false` | `true`, `false` | An extension that automatically adds a `thread` tag to the log specifying what thread the log happened in. |
 | `useLogIdExtension` | `false` | `true`, `false` | An extension that automatically adds a `logId` tag to the log, with a unique ID as its value. |
+| `pathStackDepth` | `0` | Any `number` | (_Advanced_) Level of depth to determine the path portion of the log from. For example, if you write a wrapper over the logger, set this to 1 so that the path will reflect the code that called your wrapper, rather than the wrapper itself.  |
