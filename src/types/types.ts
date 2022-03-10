@@ -18,6 +18,7 @@ export enum TimestampFormat {
 export interface LogOptions extends Record<string, any> {
   timestampFormat: TimestampFormat,
   logFormat: string,
+  pathFormat: string,
   pathStackDepth: number,
   useColors: boolean,
   useThreadTagsExtension: boolean,

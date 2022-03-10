@@ -18,7 +18,7 @@ export interface CallSite {
 }
 
 export interface GetCallerResponse {
-  fileName: string
+  filePath: string
   functionName: string
   methodName: string
   typeName: string
@@ -63,7 +63,7 @@ export class _InternalCaller {
         return null
       }
       const response = {
-        fileName: callsite?.getFileName(),
+        filePath: callsite?.getFileName(),
         functionName: callsite?.getFunctionName(),
         methodName: callsite?.getMethodName(),
         typeName: callsite?.getTypeName(),

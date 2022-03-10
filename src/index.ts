@@ -14,8 +14,7 @@ const timestampConversion: Record<TimestampFormat, string> = {
 }
 
 const DEFAULT_LOG_FORMAT = '{timestamp} [{type}] {message} [{path}] {tags}'
-
-
+const DEFAULT_PATH_FORMAT = '{filePath}:{lineNumber}'
 export class StructuredLogger {
   // currently unused, will be used for configuring e.g. timestamp formats in the future
   config: LogOptions
@@ -25,6 +24,7 @@ export class StructuredLogger {
     const defaultOptions: LogOptions = {
       timestampFormat: TimestampFormat.Iso,
       logFormat: DEFAULT_LOG_FORMAT,
+      pathFormat: DEFAULT_PATH_FORMAT,
       pathStackDepth: 0,
       useColors: false,
       useThreadTagsExtension: false,
@@ -68,7 +68,18 @@ export class StructuredLogger {
   ) {
     const tagsString = parseTagsAsString(this.#enrichTags(tags))
     const timestamp = this.#getCurrentTimestampInDesiredFormat()
-    const path = caller ? `${caller.fileName}:${caller.lineNumber}` : ''
+
+    let path = ''
+
+    if (caller) {
+      path = this.config.pathFormat
+      path = path.replace('{filePath}', caller.filePath)
+      path = path.replace('{lineNumber}', caller.lineNumber.toString())
+      path = path.replace('{functionName}', caller.functionName)
+      path = path.replace('{methodName}', caller.methodName)
+      path = path.replace('{typeName}', caller.typeName)
+    }
+
 
     let log = this.config.logFormat
     log = log.replace('{timestamp}', timestamp)
@@ -80,6 +91,7 @@ export class StructuredLogger {
     if (this.config.useColors) {
       log = colorText(type, log)
     }
+
     console[type](log)
   }
 

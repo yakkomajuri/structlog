@@ -46,6 +46,7 @@ You can configure the following options by passing them in an object as a parame
 | :--: | :--: | :--: | :--: | 
 | `timestampFormat` | `'iso'` | `'iso'` , `'gmt'`, `'unix'`, `'timestring'` ,`'localestring'` | Timestamp format to use. |
 | `logFormat` | `'{timestamp} [{type}] {message} [{path}] {tags}'` | Any `string` | Log format to use `{}` to define variables. Accepted variables: `timestamp`, `type`, `message`, `path`, `tags`. |
+| `pathFormat` | `'{filePath}:{lineNumber}'` | Any `string` | Format to use for the `path` component of the log. Use `{}` to define variables. Accepted variables: `filePath`, `lineNumber`, `functionName`, `methodName`, `typeName`. |
 | `useColors` | `false` | `true`, `false` | Whether logs should be printed with colors according to the type (e.g. error = red). |
 | `useThreadTagsExtension` | `false` | `true`, `false` | An extension that automatically adds a `thread` tag to the log specifying what thread the log happened in. |
 | `useLogIdExtension` | `false` | `true`, `false` | An extension that automatically adds a `logId` tag to the log, with a unique ID as its value. |
