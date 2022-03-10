@@ -5,7 +5,10 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/yakkomajuri/structlog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yakkomajuri/structlog.git"
+  },
   "license": "MIT",
   "keywords": [],
   "scripts": {
