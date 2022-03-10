@@ -25,6 +25,7 @@ export class StructuredLogger {
     const defaultOptions: LogOptions = {
       timestampFormat: TimestampFormat.Iso,
       logFormat: DEFAULT_LOG_FORMAT,
+      pathStackDepth: 0,
       useColors: false,
       useThreadTagsExtension: false,
       useLogIdExtension: false
@@ -35,27 +36,27 @@ export class StructuredLogger {
   }
 
   debug(message: string, tags?: LogTags) {
-    const caller = this.caller.getCaller()
+    const caller = this.caller.getCaller(this.config.pathStackDepth)
     this.#log(LogType.Debug, caller, message, tags)
   }
 
   info(message: string, tags?: LogTags) {
-    const caller = this.caller.getCaller()
+    const caller = this.caller.getCaller(this.config.pathStackDepth)
     this.#log(LogType.Info, caller, message, tags)
   }
 
   log(message: string, tags?: LogTags) {
-    const caller = this.caller.getCaller()
+    const caller = this.caller.getCaller(this.config.pathStackDepth)
     this.#log(LogType.Log, caller, message, tags)
   }
 
   error(message: string, tags?: LogTags) {
-    const caller = this.caller.getCaller()
+    const caller = this.caller.getCaller(this.config.pathStackDepth)
     this.#log(LogType.Error, caller, message, tags)
   }
 
   warn(message: string, tags?: LogTags) {
-    const caller = this.caller.getCaller()
+    const caller = this.caller.getCaller(this.config.pathStackDepth)
     this.#log(LogType.Warn, caller, message, tags)
   }
 

@@ -41,28 +41,24 @@ export class _InternalCaller {
     return stack
   }
 
-  callerCallsite(): CallSite | null {
-    let targetFound = false
-    for (const callsite of this.callsites() || []) {
-      if (targetFound) {
-        return callsite
-      }
-
+  callerCallsite(depth = 0): CallSite | null {
+    const callsites = this.callsites()
+    for (let i = 0; i < callsites.length; ++i) {
+      const callsite = callsites[i]
       const fileName = callsite.getFileName()
       const typeName = callsite.getTypeName()
 
       if (fileName && typeName === this.classNameMarker) {
-        targetFound = true
-        continue
+        return callsites[i + depth + 1]
       }
     }
 
     return null
   }
 
-  getCaller(): GetCallerResponse | null {
+  getCaller(depth = 0): GetCallerResponse | null {
     try {
-      const callsite = this.callerCallsite()
+      const callsite = this.callerCallsite(depth)
       if (!callsite) {
         return null
       }
