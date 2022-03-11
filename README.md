@@ -1,6 +1,6 @@
 # structlog
 
-A lightweight structured logging tool for Node.js. Contains no dependencies!
+A lightweight structured logging tool for Node.js without any dependencies.
 
 ## Example
 
