@@ -1,6 +1,6 @@
 {
   "name": "structlog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Structured logging tool for Node.js.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -50,9 +50,7 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {
-    "colors": "^1.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
