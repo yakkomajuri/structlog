@@ -52,7 +52,6 @@
   },
   "files": [
     "build/main",
-    "build/module",
     "!**/*.spec.*",
     "!**/*.test.*",
     "!**/*.json",
