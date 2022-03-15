@@ -7,6 +7,7 @@ module.exports = {
     browser: true,
     es6: true,
     'cypress/globals': true,
+    jest: true
   },
   settings: {
     react: {

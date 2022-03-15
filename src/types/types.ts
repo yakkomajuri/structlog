@@ -9,7 +9,6 @@ export enum LogType {
 export enum TimestampFormat {
   Iso = 'iso',
   Utc = 'utc',
-  Gmt = 'gmt',
   TimeString = 'timestring',
   LocaleString = 'localestring',
   UnixTimestamp = 'unix',

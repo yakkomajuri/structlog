@@ -7,7 +7,6 @@ import { threadId, isMainThread } from 'worker_threads'
 const timestampConversion: Record<TimestampFormat, string> = {
   [TimestampFormat.Iso]: 'toISOString',
   [TimestampFormat.Utc]: 'toUTCString',
-  [TimestampFormat.Gmt]: 'toGMTString',
   [TimestampFormat.TimeString]: 'toTimeString',
   [TimestampFormat.LocaleString]: 'toLocaleString',
   [TimestampFormat.UnixTimestamp]: 'getTime',
@@ -107,10 +106,14 @@ export class StructuredLogger {
     }
 
     if (this.config.useLogIdExtension) {
-      enrichmentTags['logId'] = new UUIDT().toString()
+      enrichmentTags['logId'] = StructuredLogger.generateUuid()
     }
 
     return { ...enrichmentTags, ...tags }
+  }
+
+  static generateUuid(): string {
+    return new UUIDT().toString()
   }
 }
 
