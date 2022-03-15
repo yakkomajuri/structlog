@@ -119,3 +119,5 @@ export class StructuredLogger {
 
 // for easy use, export a ready instance of StructuredLogger with the default config
 export const logger = new StructuredLogger()
+
+// test ci
